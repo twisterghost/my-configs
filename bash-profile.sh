@@ -31,7 +31,7 @@ function customPrompt {
 
   PS2="${BOLD}and then... ${OFF} "
 }
-PROMPT_COMMAND=exitstatus
+PROMPT_COMMAND=customPrompt
 
 # Shortening for 'git push origin XYZ'
 function gpo {
