@@ -1,17 +1,16 @@
 # Import the git branch completion script if its there.
-if [ -f ~/scripts/.git-completion.bash ]; then
-  . ~/scripts/.git-completion.bash
+if [ -f ~/my-configs/scripts/.git-completion.bash ]; then
+  . ~/my-configs/scripts/.git-completion.bash
 fi
 
-
 # Returns the current branch name.
-function parse_current_branch {
+function parse-current-branch {
   git symbolic-ref --short HEAD
 }
 
 # Custom prompt. Shows a green colon if the previous command exited properly.
 # Shows a red colon otherwise.
-function customPrompt {
+function custom-prompt {
 
   EXITSTATUS="$?"
   BOLD="\[\033[1m\]"
@@ -31,7 +30,7 @@ function customPrompt {
 
   PS2="${BOLD}and then... ${OFF} "
 }
-PROMPT_COMMAND=customPrompt
+PROMPT_COMMAND=custom-prompt
 
 # Shortening for 'git push origin XYZ'
 function gpo {
@@ -44,7 +43,7 @@ function gcm {
 }
 
 # Creates a new branch based off of master.
-newbranch() {
+new-branch() {
   git stash
   git fetch
   git checkout master
@@ -54,17 +53,17 @@ newbranch() {
 
 # Shortcut for pulling the current branch
 pull() {
-  git pull origin $(parse_current_branch)
+  git pull origin $(parse-current-branch)
 }
 
 # Shortcut for pushing the current branch
 push() {
-  git push origin $(parse_current_branch)
+  git push origin $(parse-current-branch)
 }
 
 # Merges master into your current branch.
-alias mim="mergeInMaster"
-mergeInMaster() {
+alias mim="merge-in-master"
+merge-in-master() {
   git checkout master
   git fetch
   git pull origin master
@@ -73,7 +72,7 @@ mergeInMaster() {
 }
 
 # Obtain a clean version of a branch from remote.
-cleanbranch() {
+clean-branch() {
   git checkout master
   git branch -D $1
   git fetch
