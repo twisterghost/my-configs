@@ -9,6 +9,8 @@ function parse_current_branch {
   git symbolic-ref --short HEAD
 }
 
+# Custom prompt. Shows a green colon if the previous command exited properly.
+# Shows a red colon otherwise.
 function customPrompt {
 
   EXITSTATUS="$?"
@@ -29,17 +31,19 @@ function customPrompt {
 
   PS2="${BOLD}and then... ${OFF} "
 }
-
 PROMPT_COMMAND=exitstatus
 
+# Shortening for 'git push origin XYZ'
 function gpo {
   git push origin $1
 }
 
+# Shortening for 'git commit -m XYZ'
 function gcm {
   git commit -m "$1"
 }
 
+# Creates a new branch based off of master.
 newbranch() {
   git stash
   git fetch
@@ -58,10 +62,7 @@ push() {
   git push origin $(parse_current_branch)
 }
 
-# merge master into your current branch
-#
-# $ mergeInMaster
-#
+# Merges master into your current branch.
 alias mim="mergeInMaster"
 mergeInMaster() {
   git checkout master
@@ -71,10 +72,7 @@ mergeInMaster() {
   git merge master
 }
 
-# obtain a clean version of a branch from remote
-#
-# $ cleanbranch qa
-#
+# Obtain a clean version of a branch from remote.
 cleanbranch() {
   git checkout master
   git branch -D $1
@@ -82,11 +80,6 @@ cleanbranch() {
   git checkout $1
   git pull origin $1
 }
-
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
-
 
 ########################
 # ALIASES
@@ -98,13 +91,16 @@ alias cls="clear;pwd;ls"
 alias resource="source ~/.profile"
 alias profile="sub ~/.profile"
 alias hosts="sub /etc/hosts"
+
+
+## Mini scripts
+
+# Strip all trailing whitespace from files, recursively.
 alias striptrailspace="ack --print0 -l '[ \t]+$' | xargs -0 -n1 perl -pi -e 's/[ \t]+$//'"
 
-# Git aliases
+# Git related aliases, mostly shortenings.
 alias gaa="git add -A"
 alias gs="git status"
 alias forgit="git reset --hard"
-alias stash="git stash"
-alias pop="git stash pop"
-alias newday="git stash;git checkout master;git fetch;git pull --rebase origin master;"
+alias refresh="git stash;git checkout master;git fetch;git pull --rebase origin master;"
 alias undocommit="git reset --soft 'HEAD^'"
