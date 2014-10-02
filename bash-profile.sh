@@ -80,6 +80,18 @@ clean-branch() {
   git pull origin $1
 }
 
+# Update my configs from the latest entry on github.
+update-configs() {
+  cd ~/my-configs
+  git fetch
+  git checkout master
+  git pull origin master
+}
+
+link-config() {
+  ln -s ~/my-configs/$2 $1
+}
+
 ########################
 # ALIASES
 ########################
