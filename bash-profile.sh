@@ -82,12 +82,16 @@ clean-branch() {
 
 # Update my configs from the latest entry on github.
 update-configs() {
+  CWD=$(pwd)
   cd ~/my-configs
   git fetch
   git checkout master
   git pull origin master
+  cd $CWD
 }
 
+
+# Create a symlink to a config file in my-configs.
 link-config() {
   ln -s ~/my-configs/$2 $1
 }
