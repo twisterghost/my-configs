@@ -19,7 +19,7 @@ function custom-prompt {
   BLUE="\[\e[34;1m\]"
   OFF="\[\033[m\]"
 
-  PROMPT="[\t] #\W"
+  PROMPT="\h#\w"
 
   if [ "${EXITSTATUS}" -eq 0 ]
   then
@@ -103,8 +103,8 @@ link-config() {
 # Navigation & tools
 alias ..="cd .."
 alias cls="clear;pwd;ls"
-alias resource="source ~/.profile"
-alias profile="sub ~/.profile"
+alias resource="source ~/.bash_profile"
+alias profile="sub ~/.bash_profile"
 alias hosts="sub /etc/hosts"
 
 
