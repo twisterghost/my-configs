@@ -4,8 +4,10 @@ if [ -f ~/my-configs/scripts/.git-completion.bash ]; then
 fi
 
 # Returns the current branch name.
+# The second line can be used with Git 2.0+, otherwise, the first works fine.
 function parse-current-branch {
-  git symbolic-ref --short HEAD
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+  #git symbolic-ref --short HEAD
 }
 
 # Custom prompt. Shows a green colon if the previous command exited properly.
@@ -30,6 +32,7 @@ function custom-prompt {
 
   PS2="${BOLD}and then... ${OFF} "
 }
+
 PROMPT_COMMAND=custom-prompt
 
 # Shortening for 'git push origin XYZ'
@@ -43,7 +46,7 @@ function gcm {
 }
 
 # Creates a new branch based off of master.
-new-branch() {
+function new-branch() {
   git stash
   git fetch
   git checkout master
@@ -52,18 +55,18 @@ new-branch() {
 }
 
 # Shortcut for pulling the current branch
-pull() {
+function pull() {
   git pull origin $(parse-current-branch)
 }
 
 # Shortcut for pushing the current branch
-push() {
+function push() {
   git push origin $(parse-current-branch)
 }
 
 # Merges master into your current branch.
 alias mim="merge-in-master"
-merge-in-master() {
+function merge-in-master() {
   git checkout master
   git fetch
   git pull origin master
@@ -72,7 +75,7 @@ merge-in-master() {
 }
 
 # Obtain a clean version of a branch from remote.
-clean-branch() {
+function clean-branch() {
   git checkout master
   git branch -D $1
   git fetch
@@ -81,7 +84,7 @@ clean-branch() {
 }
 
 # Update my configs from the latest entry on github.
-update-configs() {
+function update-configs() {
   CWD=$(pwd)
   cd ~/my-configs
   git fetch
@@ -92,7 +95,7 @@ update-configs() {
 
 
 # Create a symlink to a config file in my-configs.
-link-config() {
+function link-config() {
   ln -s ~/my-configs/$2 $1
 }
 
@@ -104,7 +107,8 @@ link-config() {
 alias ..="cd .."
 alias cls="clear;pwd;ls"
 alias resource="source ~/.bash_profile"
-alias profile="sub ~/.bash_profile"
+alias edit-config="vim ~/my-configs/bash-profile.sh"
+alias edit-profile="sub ~/.bash_profile"
 alias hosts="sub /etc/hosts"
 
 
