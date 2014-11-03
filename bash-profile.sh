@@ -1,3 +1,6 @@
+# Master profile script. Should be sourced in ~/.bash_profile
+# This will handle sourcing all of the necessary scripts in /scripts
+
 source ~/my-configs/scripts/exports.sh
 source ~/my-configs/scripts/git-functions.sh
 source ~/my-configs/scripts/bash-prompt.sh
