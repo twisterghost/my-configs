@@ -9,17 +9,22 @@ LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse @{u})
 BASE=$(git merge-base @ @{u})
 
+export UPDATED_CONFIG=0
+
 if [ $LOCAL = $REMOTE ]; then
-    echo "Configs are up to date."
+  echo "Configs are up to date."
 elif [ $LOCAL = $BASE ]; then
-    echo "Updating configs..."
-    git pull --rebase origin master
-    clear
-    source ~/.bash_profile
+  echo "Updating configs..."
+  git pull --rebase origin master
+  clear
+  cd $CWD
+  source ~/.bash_profile
+  export UPDATED_CONFIG=1
+  exit 0
 elif [ $REMOTE = $BASE ]; then
-    echo "Local configs are ahead of remote."
+  echo "Local configs are ahead of remote."
 else
-    echo "Local and remote configs are all out of wack"
+  echo "Local and remote configs are all out of wack"
 fi
 
 cd $CWD

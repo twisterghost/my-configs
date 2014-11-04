@@ -4,6 +4,11 @@
 # First, ensure that the configs are up-to-date
 source ~/my-configs/auto-update.sh
 
+# Don't continue running if it was updated, as its being run again.
+if [ "${UPDATED_CONFIG}" -eq 1 ]; then
+  exit 0
+fi
+
 # Next, load up the default configuration (sets up exports)
 source ~/my-configs/configs/default.sh
 
