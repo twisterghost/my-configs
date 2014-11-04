@@ -8,3 +8,5 @@ source ~/my-configs/configs/default.sh
 for f in ~/my-configs/scripts/*; do
   source $f;
 done
+
+echo "Hello"
