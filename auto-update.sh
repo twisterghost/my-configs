@@ -1,3 +1,6 @@
+# Ensures that everything is up to date with the remote branch.
+# If possible, pulls down new config changes and re-runs the sourcing.
+
 CWD=$(pwd)
 cd ~/my-configs
 git fetch
