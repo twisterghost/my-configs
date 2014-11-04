@@ -1,5 +1,6 @@
 CWD=$(pwd)
 cd ~/my-configs
+git fetch
 
 LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse @{u})
@@ -10,6 +11,8 @@ if [ $LOCAL = $REMOTE ]; then
 elif [ $LOCAL = $BASE ]; then
     echo "Updating configs..."
     git pull --rebase origin master
+    clear
+    source ~/.bash_profile
 elif [ $REMOTE = $BASE ]; then
     echo "Local configs are ahead of remote."
 else
