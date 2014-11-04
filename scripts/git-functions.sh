@@ -12,7 +12,6 @@ function parse-current-branch {
   #git symbolic-ref --short HEAD
 }
 
-
 # Shortening for 'git push origin XYZ'
 function gpo {
   git push origin $1

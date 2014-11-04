@@ -1,29 +1,11 @@
 # Master profile script. Should be sourced in ~/.bash_profile
 # This will handle sourcing all of the necessary scripts in /scripts
 
-source ~/my-configs/scripts/exports.sh
-source ~/my-configs/scripts/git-functions.sh
-source ~/my-configs/scripts/bash-prompt.sh
-source ~/my-configs/scripts/alias.sh
+source ~/my-configs/configs/default.sh
 
-# Update my configs from the latest entry on github.
-function update-configs() {
-  CWD=$(pwd)
-  cd ~/my-configs
-  git fetch
-  git checkout master
-  git pull origin master
-  cd $CWD
-  resource
-}
+for f in ~/my-configs/scripts/*; do
+  echo "Sourcing $f"
+  source $f;
+done
 
-# Create a symlink to a config file in my-configs.
-
-function link-config() {
-  if [ "$#" -ne 2 ]
-  then
-    echo "Usage: link-config [endpoint] [sourcefile]"
-    return 0
-  fi
-  ln -s ~/my-configs/$2 $1
-}
+clear
