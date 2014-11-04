@@ -20,7 +20,7 @@ elif [ $LOCAL = $BASE ]; then
   cd $CWD
   source ~/.bash_profile
   export UPDATED_CONFIG=1
-  exit 0
+  return 0
 elif [ $REMOTE = $BASE ]; then
   echo "Local configs are ahead of remote."
 else
