@@ -5,9 +5,9 @@ CWD=$(pwd)
 cd ~/my-configs
 git fetch
 
-LOCAL=$(git rev-parse @)
+LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse @{u})
-BASE=$(git merge-base @ @{u})
+BASE=$(git merge-base HEAD @{u})
 
 export UPDATED_CONFIG=0
 
