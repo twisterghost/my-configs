@@ -1,3 +1,11 @@
+call pathogen#infect()
+
+" Package configurations
+"
+" Nerdtree
+map <C-q> :NERDTreeToggle<CR>
+cnoreabbrev a :NERDTreeToggle
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer:
 "       Amir Salihefendic
@@ -67,6 +75,8 @@ nmap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
+
+set number
 
 " Turn on the WiLd menu
 set wildmenu
@@ -335,6 +345,8 @@ map <leader>pp :setlocal paste!<cr>
 " Wrap lines for git commits
 au FileType gitcommit set tw=72
 
+" Highlight trailing whitespaces
+match Todo /\s\+$/
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -397,3 +409,6 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+
+set autochdir
+map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
