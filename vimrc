@@ -54,6 +54,9 @@ cnoreabbrev a :NERDTreeToggle
 " Sets how many lines of history VIM has to remember
 set history=700
 
+" Disable word wrap
+set nowrap
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -86,6 +89,10 @@ set wildignore=*.o,*~,*.pyc
 
 "Always show current position
 set ruler
+
+" Highlight long lines
+:let w:m1=matchadd('Search', '\%<101v.\%>97v', -1)
+:let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 
 " Height of the command bar
 set cmdheight=2
