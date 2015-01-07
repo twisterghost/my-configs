@@ -419,3 +419,5 @@ endfunction
 
 set autochdir
 map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
+filetype plugin indent on
+syntax on
