@@ -9,7 +9,7 @@ function custom-prompt {
   BLUE="\[\e[34;1m\]"
   OFF="\[\033[m\]"
 
-  PROMPT="\h#\w"
+  PROMPT="\H#\w"
 
   if [ "${EXITSTATUS}" -eq 0 ]
   then
