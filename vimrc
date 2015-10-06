@@ -11,7 +11,7 @@ set laststatus=2
 
 syntax enable
 set background=dark
-colorscheme material-theme
+colorscheme desert
 
 set ruler " Enable caret position
 set number " Set line number gutter
@@ -38,11 +38,12 @@ set hlsearch
 nnoremap <CR> :noh<CR><CR>
 
 " never display, e.g., any node_modules directory:
- set wildignore+=*/**/node_modules
- set wildignore+=*.class
- set wildignore+=*/target/*
- set wildignore+=*.ico,*.jpg,*.gif,*.png
+set wildignore+=*/**/node_modules
+set wildignore+=*.class
+set wildignore+=*/target/*
+set wildignore+=*.ico,*.jpg,*.gif,*.png
 
- let g:ctrlp_match_window = 'order:ttb'
- map <C-q> :NERDTreeToggle<CR>
- cnoreabbrev a :NERDTreeToggle
+let g:ctrlp_match_window = 'order:ttb'
+map <C-q> :NERDTreeToggle<CR>
+cnoreabbrev a :NERDTreeToggle
+set cursorline
