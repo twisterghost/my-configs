@@ -46,4 +46,3 @@ set wildignore+=*.ico,*.jpg,*.gif,*.png
 let g:ctrlp_match_window = 'order:ttb'
 map <C-q> :NERDTreeToggle<CR>
 cnoreabbrev a :NERDTreeToggle
-set cursorline
