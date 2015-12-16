@@ -1,5 +1,6 @@
 " Basic setup
 set nocompatible                   " Enable compatibility
+set backspace=2
 set exrc                           " allow for per-directory vimrc files
 call pathogen#infect()             " Add packages from the bundle directory
 set directory=$HOME/.vim/tmp//,.   " save vim's tempfiles to home directory
@@ -15,7 +16,7 @@ set laststatus=2
 
 " Color scheme settings
 syntax enable                      "Enable syntax highlighting
-colorscheme default
+colorscheme industry
 
 " UI
 set ruler                          " Enable caret position
