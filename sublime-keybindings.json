@@ -1,7 +1,0 @@
-// This makes sublime tabs act like everything else ever when you hit ctrl+tab
-// in that it goes to the next or previous tab, instead of whatever insane
-// "working stack" nonsense it does by default.
-[
-	{ "keys": ["ctrl+tab"], "command": "next_view" },
-	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" }
-]
