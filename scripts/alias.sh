@@ -16,3 +16,4 @@ function attach {
 
 # Strip all trailing whitespace from files, recursively.
 alias striptrailspace="ack --print0 -l '[ \t]+$' | xargs -0 -n1 perl -pi -e 's/[ \t]+$//'"
+alias cleanswaps="rm -i \`find . | grep .swp$\`"
