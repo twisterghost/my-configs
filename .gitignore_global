@@ -1,4 +1,9 @@
+# Ignore repo-level config dotfiles
 .vimrc
-npm-debug.log
-*DS_Store
 .nvimrc
+
+# Ignore npm files
+npm-debug.log
+
+# OSX specific ignores
+*DS_Store
