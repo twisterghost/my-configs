@@ -2,7 +2,7 @@
 
 # Navigation & tools
 alias ..="cd .."
-alias resource="source ~/.bash_profile"
+alias resource="source ~/.profile"
 alias hosts="$SOFT_EDITOR /etc/hosts"
 
 

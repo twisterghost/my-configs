@@ -21,6 +21,7 @@ set ruler                          " Enable caret position
 set number                         " Set line number gutter
 set listchars=tab:→\ ,trail:•      " set trailing space and tab charactersi
 set list
+set rnu
 
 " File type management
 filetype plugin indent on          " Run settings for the given filetype
@@ -57,6 +58,10 @@ set wildignore+=*/dist/*
 
 " CtrlP
 let g:ctrlp_match_window = 'order:ttb'
+let g:ctrlp_max_files = 0
+
+" Nerdtree
+let NERDTreeShowHidden=1
 
 " Quick remaps
 map <C-q> :NERDTreeToggle<CR>
@@ -65,5 +70,5 @@ map <F3> :vertical resize 130<CR>
 inoremap jk <esc>
 nnoremap <leader>a :Ag
 autocmd CompleteDone * pclose " Close peek window after auto complete
-let test#javascript#mocha#options = '--compilers js:babel/register --require /Users/michael/src/tower/core/test/testEnv.js'
+let test#javascript#mocha#options = '--compilers js:babel-register --require /Users/michael/src/tower/core/test/testEnv.js'
 set timeoutlen=1000 ttimeoutlen=0
