@@ -47,7 +47,8 @@ set hidden
 nnoremap <CR> :noh<CR><CR>
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-H> :bprev<CR>
-nnoremap <C-X> :bdelete<CR>
+"nnoremap <C-X> :bdelete<CR>
+nnoremap <C-X> :bp\|bd #<CR>
 " never display, e.g., any node_modules directory:
 set wildignore+=*/**/node_modules
 set wildignore+=*.class
