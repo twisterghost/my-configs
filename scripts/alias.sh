@@ -12,3 +12,8 @@ alias hosts="$SOFT_EDITOR /etc/hosts"
 function attach {
   tmux attach -t $1
 }
+
+# Shortcut tmux new -s
+function ses {
+  tmux new -s $1
+}
