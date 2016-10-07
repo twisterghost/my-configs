@@ -72,7 +72,6 @@ set expandtab                      " convert all tabs to spaces
 set showmatch                      " display when a contextualizing symbol has a match
 set smartindent
 
-
 " Quick remaps
 map <C-q> :NERDTreeToggle<CR>
 map <F2> :NERDTreeToggle<CR>
@@ -80,4 +79,6 @@ map <F3> :vertical resize 130<CR>
 inoremap jk <esc>
 nnoremap <leader>a :Ag
 autocmd CompleteDone * pclose " Close peek window after auto complete
-set timeoutlen=1000 ttimeoutlen=0
+nnoremap k gk
+nnoremap j gj
+set timeoutlen=150 ttimeoutlen=0
