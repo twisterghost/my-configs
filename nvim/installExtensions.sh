@@ -1,7 +1,7 @@
 #!/bin/bash
 # Clone my preferred vim addons
 
-echo "Creating bundle directory...
+echo "Creating bundle directory..."
 mkdir -p bundle
 cd bundle
 
