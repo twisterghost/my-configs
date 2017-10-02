@@ -12,3 +12,8 @@ function attach {
 function ses {
   tmux new -s $1
 }
+
+# Kill a process on the given port
+function kill-port() {
+  kill -9 `sudo lsof -t -i:$1`
+}
