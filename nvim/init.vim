@@ -77,8 +77,12 @@ map <C-q> :NERDTreeToggle<CR>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :vertical resize 130<CR>
 inoremap jk <esc>
-nnoremap <leader>a :Ag
 autocmd CompleteDone * pclose " Close peek window after auto complete
 nnoremap k gk
 nnoremap j gj
+
+" Aliases
+cnoreabbrev W w
+cnoreabbrev words set wrap linebreak nolist
+
 set timeoutlen=150 ttimeoutlen=0
