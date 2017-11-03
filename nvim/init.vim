@@ -86,3 +86,9 @@ cnoreabbrev W w
 cnoreabbrev words set wrap linebreak nolist
 
 set timeoutlen=150 ttimeoutlen=0
+
+" tsuquyomi
+let g:tsuquyomi_completion_detail = 1    " Show method signatures in omni-completion
+autocmd FileType typescript setlocal completeopt+=menu,preview
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>  " Display type info on <leader>t
+
