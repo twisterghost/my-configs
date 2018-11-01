@@ -13,6 +13,7 @@ git clone -q https://github.com/vim-airline/vim-airline.git
 git clone -q https://github.com/vim-airline/vim-airline-themes.git
 git clone -q https://github.com/kien/ctrlp.vim.git
 git clone -q https://github.com/ntpeters/vim-better-whitespace.git
+git clone -q https://github.com/jremmen/vim-ripgrep.git
 
 # Languages
 echo "Cloning language syntaxes..."
