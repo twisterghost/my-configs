@@ -1,12 +1,6 @@
 font:
   size: 14.0
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
     family: "Source Code Pro"
     style: Regular
 
