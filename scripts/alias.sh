@@ -1,4 +1,4 @@
 # Misc. aliases
 alias ..="cd .."
-alias resource="source ~/.bash_profile"
+alias resource="source ~/.bashrc"
 alias hosts="$SOFT_EDITOR /etc/hosts"
