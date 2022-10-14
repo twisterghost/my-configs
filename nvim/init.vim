@@ -6,17 +6,34 @@ set directory=$HOME/.vim/tmp//,.   " save vim's tempfiles to home directory
 let mapleader=","                  " map leader to comma
 set backupcopy=yes                 " Fix for watch mode in webpack
 set noswapfile
-let g:vim_markdown_folding_disabled=1
-
-" Use Pathogen for package management
-call pathogen#infect()             " Add packages from the bundle directory
-
+set mouse=a
 set laststatus=2                   " Display the status always
 
-" Package specific configurations
+"" Plugins
+call plug#begin()
 
-"" Airline
-let g:airline_powerline_fonts = 1
+Plug 'preservim/nerdtree'
+Plug 'ap/vim-buftabline'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-endwise'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'wadackel/vim-dogrun'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier'
+
+call plug#end()
+
+"" Plugin Configuration
+let g:coc_global_extensions = ['coc-tsserver']
+let g:prettier#autoformat_require_pragma = 0
+
+colorscheme dogrun
 
 "" Wild menu
 set wildmode=longest,list,full
@@ -37,17 +54,8 @@ set wildignore+=*.ico,*.jpg,*.gif,*.png
 set wildignore+=*/**/coverage*
 set wildignore+=*/dist/*
 
-"" CtrlP
-let g:ctrlp_match_window = 'order:ttb'
-let g:ctrlp_max_files = 0
-
 "" Nerdtree
 let NERDTreeShowHidden=1
-
-" Color scheme settings
-syntax enable                      " Enable syntax highlighting
-colorscheme lucius                 " Use Lucius colorscheme
-LuciusLight                        " Use LucisLight variant
 
 " UI
 set ruler                          " Enable caret position
@@ -76,6 +84,7 @@ set smartindent
 map <C-f> :NERDTreeToggle<CR>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :vertical resize 130<CR>
+map <C-o> :FZF<CR>
 inoremap jk <esc>
 autocmd CompleteDone * pclose " Close peek window after auto complete
 nnoremap k gk
@@ -87,11 +96,3 @@ cnoreabbrev words set wrap linebreak nolist
 
 set timeoutlen=150 ttimeoutlen=0
 
-" tsuquyomi
-let g:tsuquyomi_completion_detail = 1    " Show method signatures in omni-completion
-autocmd FileType typescript setlocal completeopt+=menu,preview
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>  " Display type info on <leader>t
-
-" Goyo config
-nmap <leader>z :Goyo<cr>
-set mouse=a
